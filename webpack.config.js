@@ -8,7 +8,7 @@ module.exports = {
   mode: 'development',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '..', 'dist'),
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -36,7 +36,7 @@ module.exports = {
     ],
   },
   devServer: {
-    static: path.resolve(__dirname, '..', 'src'),
+    static: path.resolve(__dirname, 'src'),
     open: true,
     hot: true
   },

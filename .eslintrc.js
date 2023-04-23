@@ -26,8 +26,8 @@ module.exports = {
     'import/namespace': 'error',
     'import/export': 'error',
     "no-unused-vars": "error",
-    "no-trailing-spaces": "error"
-  },
+    "no-trailing-spaces": "error",
+    indent: ['error', 2, { SwitchCase: 1 }],  },
   settings: {
     react: {
       version: 'detect'
