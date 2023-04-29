@@ -6,7 +6,13 @@ interface IThemeContext {
   colorMode: { toggleColorMode: () => void };
 }
 
-const ThemeModeContext = createContext<IThemeContext>({});
+const ThemeModeContext = createContext<IThemeContext>({
+  colorMode: {
+    toggleColorMode() {
+      console.log('error');
+    },
+  },
+});
 
 type AppThemeProviderProps = {
   children: React.ReactNode;
@@ -15,8 +21,11 @@ type AppThemeProviderProps = {
 const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
   return {
     typography: {
-      fontFamily: ['"Helvetica Neue"', 'Arial'].join(','),
+      fontFamily: 'Rubik',
       button: {
+        color: mode === 'light' ? '#000000' : '#ffffff',
+      },
+      allVariants: {
         color: mode === 'light' ? '#000000' : '#ffffff',
       },
     },
@@ -24,7 +33,7 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
       MuiButton: {
         styleOverrides: {
           root: {
-            color: mode === 'light' ? '#000000' : '#ffffff',
+            color: mode === 'light' ? '#121212' : '#ffffff',
             textDecoration: 'none',
             textTransform: 'none',
           },
@@ -36,18 +45,20 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
       ...(mode === 'light'
         ? {
             primary: {
-              main: '#beefff',
+              main: '#ffffff',
+              dark: '#eeeeee',
             },
             secondary: {
-              main: '#2dcafa',
+              main: '#8bd6e5',
             },
           }
         : {
             primary: {
-              main: '#010107',
+              main: '#121212',
+              dark: '#919191',
             },
             secondary: {
-              main: '#1f83e5',
+              main: '#2e3d49',
             },
           }),
     },

@@ -35,6 +35,7 @@ module.exports = {
         namedComponents: 'arrow-function',
       },
     ],
+    'react/no-array-index-key': 'off',
     'react/react-in-jsx-scope': 'off',
   },
   settings: {

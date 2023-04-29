@@ -8,7 +8,13 @@ const PageLayout = ({ children }: PageLayoutProps) => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ height: '100%', backgroundColor: theme.palette.primary.main }} overflow="hidden">
+    <Box
+      sx={{
+        height: '100%',
+        background: `linear-gradient(to right bottom, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+      }}
+      overflow="auto"
+    >
       {children}
     </Box>
   );

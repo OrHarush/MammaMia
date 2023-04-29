@@ -12,6 +12,12 @@ const games: Game[] = [
     navigationUrl: 'tictactoe',
   },
   {
+    name: 'Hangman',
+    description: '2nd game I make',
+    imageUrl: '../../../assets/hangmanGameCover.jpg',
+    navigationUrl: 'hangman',
+  },
+  {
     name: 'Mario Kart 64',
     description: 'Lisa favorite game',
     imageUrl: '../../../assets/marioKartGameCover.jpg',
