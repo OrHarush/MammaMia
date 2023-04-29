@@ -1,28 +1,16 @@
 import * as React from 'react';
-import { ThemeProvider as MuiThemeProvider , createTheme } from '@mui/material/styles';
+import { BrowserRouter } from 'react-router-dom';
+import ThemeProvider from './ThemeProvider';
 
-// Define your custom theme here
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#37417b',
-    },
-    secondary: {
-      main: '#f50057',
-    },
-  },
-});
-
-type AppProvidersProps = {
+interface AppProvidersProps {
   children: React.ReactNode;
-};
+}
 
-// Wrap your app in this provider to provide the theme
 const AppProviders = ({ children }: AppProvidersProps) => {
   return (
-    <MuiThemeProvider theme={theme}>
-      {children}
-    </MuiThemeProvider>
+    <ThemeProvider>
+      <BrowserRouter>{children}</BrowserRouter>
+    </ThemeProvider>
   );
 };
 

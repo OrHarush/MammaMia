@@ -1,18 +1,14 @@
-import React from 'react';
 import AppProviders from './appProviders/AppProviders';
-import Box from '@mui/material/Box';
-import NavBar from './Layout/NavBar';
-
+import Routing from './routing';
+import AppLayout from './Layout/AppLayout';
 
 const App = () => {
   return (
     <AppProviders>
-      <Box>
-        <NavBar></NavBar>
-        <h1>hello </h1>
-      </Box>
+      <AppLayout>
+        <Routing />
+      </AppLayout>
     </AppProviders>
-
   );
 };
 

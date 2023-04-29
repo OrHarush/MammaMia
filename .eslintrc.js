@@ -1,41 +1,50 @@
 module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
   extends: [
-    // 'plugin:@typescript-eslint/recommended',
+    'airbnb',
     'plugin:react/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    // 'plugin:import/typescript'
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
   ],
-  plugins: ['react', 'import'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2022,
-    sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
+  plugins: ['@typescript-eslint', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+    'react/jsx-props-no-spreading': 'off',
+    'import/extensions': 'off',
+    'import/no-unresolved': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    // "@typescript-eslint/no-unused-vars": "warn",
-    'semi': ['error', 'always'],
+    'import/prefer-default-export': 'off',
+    'react/prop-types': 'off',
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+      },
+    ],
     'react/react-in-jsx-scope': 'off',
-    'import/no-unresolved': 'error',
-    'import/named': 'error',
-    'import/default': 'error',
-    'import/namespace': 'error',
-    'import/export': 'error',
-    "no-unused-vars": "error",
-    "no-trailing-spaces": "error",
-    indent: ['error', 2, { SwitchCase: 1 }],  },
+  },
   settings: {
     react: {
-      version: 'detect'
+      version: 'detect',
     },
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
-  }
+  },
 };

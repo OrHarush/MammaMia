@@ -1,12 +1,10 @@
-import { Stack } from '@mui/material';
+import { Stack, StackProps } from '@mui/material';
 
-interface ColumnProps {
-    children: React.ReactNode;
-}
+type ColumnProps = StackProps;
 
-const Column = ({children} : ColumnProps) => {
+const Column = ({ children, ...props }: ColumnProps) => {
   return (
-    <Stack>
+    <Stack {...props} direction="column">
       {children}
     </Stack>
   );
