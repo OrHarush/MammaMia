@@ -9,9 +9,11 @@ const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <Box
+      textAlign="center"
       sx={{
         height: '100%',
-        background: `linear-gradient(to right bottom, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+        background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.primary.light} 50%)`,
+        // background: `linear-gradient(to right bottom, ${theme.palette.primary.dark}, ${theme.palette.primary.light})`,
       }}
       overflow="auto"
     >

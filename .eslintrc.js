@@ -37,6 +37,7 @@ module.exports = {
     ],
     'react/no-array-index-key': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
   },
   settings: {
     react: {

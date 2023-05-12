@@ -4,15 +4,18 @@ import Home from '../pages/Home';
 import GamesLibrary from '../pages/GamesLibrary';
 import TicTacToe from '../pages/Games/TicTacToe';
 import Hangman from '../pages/Games/Hangman';
+import Anime from '../pages/Anime';
+import { AnimeUrl, GameLibraryUrl, HangmanUrl, HomeUrl, TicTacToeUrl } from '../consts/urls';
 
 const Routing = () => {
   return (
     <Routes>
       <Route path="*" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/games" element={<GamesLibrary />} />
-      <Route path="/games/tictactoe" element={<TicTacToe />} />
-      <Route path="/games/hangman" element={<Hangman />} />
+      <Route path={HomeUrl} element={<Home />} />
+      <Route path={GameLibraryUrl} element={<GamesLibrary />} />
+      <Route path={AnimeUrl} element={<Anime />} />
+      <Route path={TicTacToeUrl} element={<TicTacToe />} />
+      <Route path={HangmanUrl} element={<Hangman />} />
     </Routes>
   );
 };

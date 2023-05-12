@@ -16,7 +16,7 @@ const Square = ({ value, hoverValue, ...props }: SquareProps) => {
     <Button
       variant="contained"
       color="secondary"
-      sx={{ width: '200px', height: '200px' }}
+      sx={{ width: '150px', height: '150px' }}
       {...props}
       onMouseLeave={toggleIsHoveringSquare}
     >
@@ -28,7 +28,7 @@ const Square = ({ value, hoverValue, ...props }: SquareProps) => {
     <Button
       variant="contained"
       color="secondary"
-      sx={{ width: '200px', height: '200px' }}
+      sx={{ width: '150px', height: '150px' }}
       {...props}
       onMouseEnter={toggleIsHoveringSquare}
       onMouseLeave={toggleIsHoveringSquare}

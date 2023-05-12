@@ -46,19 +46,21 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
         ? {
             primary: {
               main: '#ffffff',
-              dark: '#eeeeee',
+              dark: '#a2a2a2',
+              light: '#e5e5e5',
             },
             secondary: {
-              main: '#8bd6e5',
+              main: '#2297a6',
             },
           }
         : {
             primary: {
               main: '#121212',
-              dark: '#919191',
+              dark: '#2a2a2a',
+              light: '#726c6c',
             },
             secondary: {
-              main: '#2e3d49',
+              main: '#046673',
             },
           }),
     },

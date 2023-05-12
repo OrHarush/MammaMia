@@ -3,6 +3,7 @@ import Board from './Board';
 import Column from '../../../Layout/Column';
 import PageLayout from '../../../Layout/PageLayout';
 import ScoreBoard from './ScoreBoard';
+import GameHeader from '../../components/GameHeader';
 
 export type TicTacToePlayer = 'X' | 'O' | '';
 
@@ -25,6 +26,7 @@ const TicTacToe = () => {
   return (
     <PageLayout>
       <Column alignItems="center" justifyContent="center" padding={1} spacing={3} marginTop="10px">
+        <GameHeader gameTitle="Tic-Tac-Toe" />
         <ScoreBoard currentPlayer={currentPlayer} xScore={xScore} oScore={oScore} />
         <Board
           currentPlayer={currentPlayer}

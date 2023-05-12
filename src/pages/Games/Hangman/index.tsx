@@ -1,79 +1,74 @@
-import { Box, Grid, Typography, useTheme } from '@mui/material';
+import { Box, Button, Grid, Typography, useTheme } from '@mui/material';
 import { useEffect, useState } from 'react';
 import PageLayout from '../../../Layout/PageLayout';
-import LetterCard from './LetterCard';
+import LetterButton from './LetterButton';
 import Column from '../../../Layout/Column';
 import { gameWords, letters } from './gameConsts';
 import Row from '../../../Layout/Row';
+import Letters from './Letters';
+import GameHeader from '../../components/GameHeader';
+import WordDisplay from './WordDisplay';
 
 const Hangman = () => {
   const theme = useTheme();
   const [initialWord, setInitialWord] = useState('');
-  const [guessLetters, setGuessedLetters] = useState([]);
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const [numberOfGuesses, setNumberOfGueeses] = useState(7);
 
-  useEffect(() => {
+  const randomizeWord = () => {
     let randomWordIndex = Math.random() * gameWords.length;
     randomWordIndex = Math.floor(randomWordIndex);
 
-    setInitialWord(gameWords[randomWordIndex]);
+    return gameWords[randomWordIndex];
+  };
+
+  useEffect(() => {
+    setInitialWord(randomizeWord());
   }, []);
 
   useEffect(() => {
-    console.log(guessLetters);
-  }, [guessLetters]);
+    console.log('guessed letter');
+    console.log(guessedLetters);
+  }, [guessedLetters]);
 
-  const checkLetterIsInWord = (letterIndex: number) => {
+  const checkIsLetterInWord = (letterIndex: number) => {
+    console.log('-----');
     console.log(initialWord);
     console.log(letters[letterIndex]);
     console.log(initialWord.includes(letters[letterIndex]));
+    console.log(initialWord.includes(letters[letterIndex].toLowerCase()));
 
-    if (initialWord.includes(letters[letterIndex].toLowerCase())) {
-      const newGuessedLetters = [...guessLetters];
-      newGuessedLetters.push(letters[letterIndex]);
+    if (initialWord.toLowerCase().includes(letters[letterIndex].toLowerCase())) {
+      const newGuessedLetters = [...guessedLetters];
+      newGuessedLetters.push(letters[letterIndex].toLowerCase());
       setGuessedLetters(newGuessedLetters);
       console.log('yes');
+    } else {
+      setNumberOfGueeses((prevNumber) => prevNumber - 1);
     }
     console.log(letters[letterIndex]);
   };
 
+  const resetGame = () => {
+    setNumberOfGueeses(7);
+    setInitialWord(randomizeWord());
+    setGuessedLetters([]);
+  };
+
   return (
     <PageLayout>
-      <Column alignItems="center" spacing={2}>
-        <Typography variant="h1">Hangman</Typography>
-
-        <Typography variant="h1">{initialWord}</Typography>
-        <Row spacing={1}>
-          {initialWord.split('').map((letter, index) =>
-            guessLetters.includes(letter) ? (
-              <Column key={`${letter}+${index}`}>
-                <Typography variant="h2" key={`${letter}+${index * 26}`}>
-                  {letter}
-                </Typography>
-                <Box
-                  key={`${letter}+${index}`}
-                  width="50px"
-                  height="5px"
-                  sx={{ backgroundColor: theme.palette.secondary.main }}
-                />
-              </Column>
-            ) : (
-              <Box key={letter} width="50px" height="5px" sx={{ backgroundColor: theme.palette.secondary.main }} />
-            ),
-          )}
+      <Column alignItems="center">
+        <GameHeader gameTitle="Hangman" />
+        <Column alignItems="center" marginTop="200px" spacing={2}>
+          <WordDisplay initialWord={initialWord} guessedLetters={guessedLetters} />
+          <Typography>You have {numberOfGuesses} guesses left!</Typography>
+          <Letters guessedLetters={guessedLetters} onLetterClick={checkIsLetterInWord} />
+        </Column>
+        <Row>
+          <Button variant="contained" color="secondary" onClick={resetGame}>
+            New Game
+          </Button>
         </Row>
-
-        <Grid container spacing={1} width="900px">
-          {letters.map((letter, index) => (
-            <Grid key={letter} item xs={1}>
-              <LetterCard
-                key={letter}
-                letter={letter}
-                onClick={() => checkLetterIsInWord(index)}
-                disabled={guessLetters.includes(letter)}
-              />
-            </Grid>
-          ))}
-        </Grid>
       </Column>
     </PageLayout>
   );

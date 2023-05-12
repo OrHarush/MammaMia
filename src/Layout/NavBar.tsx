@@ -23,6 +23,7 @@ const NavBar = () => {
 
           <Button onClick={() => navigate('/home')}>Home</Button>
           <Button onClick={() => navigate('/games')}>Games Library</Button>
+          <Button onClick={() => navigate('/anime')}>Anime</Button>
         </Row>
         <Switch
           onChange={colorMode.toggleColorMode}
