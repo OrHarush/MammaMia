@@ -11,6 +11,11 @@ export default defineConfig({
       include: ['./src/**/*.js', './src/**/*.jsx', './src/**/*.ts', './src/**/*.tsx'],
     }),
   ],
+  server: {
+    hmr: {
+      overlay: false,
+    },
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },

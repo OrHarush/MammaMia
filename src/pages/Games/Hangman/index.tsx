@@ -6,7 +6,7 @@ import Column from '../../../Layout/Column';
 import { gameWords, letters } from './gameConsts';
 import Row from '../../../Layout/Row';
 import Letters from './Letters';
-import GameHeader from '../../components/GameHeader';
+import GameHeader from '../GameHeader';
 import WordDisplay from './WordDisplay';
 
 const Hangman = () => {

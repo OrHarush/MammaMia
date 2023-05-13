@@ -51,6 +51,7 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
             },
             secondary: {
               main: '#2297a6',
+              light: '#2297a6',
             },
           }
         : {
@@ -61,6 +62,7 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
             },
             secondary: {
               main: '#046673',
+              light: '#a660ef',
             },
           }),
     },

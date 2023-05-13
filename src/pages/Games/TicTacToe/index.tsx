@@ -3,7 +3,7 @@ import Board from './Board';
 import Column from '../../../Layout/Column';
 import PageLayout from '../../../Layout/PageLayout';
 import ScoreBoard from './ScoreBoard';
-import GameHeader from '../../components/GameHeader';
+import GameHeader from '../GameHeader';
 
 export type TicTacToePlayer = 'X' | 'O' | '';
 

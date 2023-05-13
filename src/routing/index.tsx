@@ -6,6 +6,7 @@ import TicTacToe from '../pages/Games/TicTacToe';
 import Hangman from '../pages/Games/Hangman';
 import Anime from '../pages/Anime';
 import { AnimeUrl, GameLibraryUrl, HangmanUrl, HomeUrl, TicTacToeUrl } from '../consts/urls';
+import AnimeInformation from '../pages/Anime/AnimeInformation';
 
 const Routing = () => {
   return (
@@ -14,6 +15,7 @@ const Routing = () => {
       <Route path={HomeUrl} element={<Home />} />
       <Route path={GameLibraryUrl} element={<GamesLibrary />} />
       <Route path={AnimeUrl} element={<Anime />} />
+      <Route path={`${AnimeUrl}/:name/:id`} element={<AnimeInformation />} />
       <Route path={TicTacToeUrl} element={<TicTacToe />} />
       <Route path={HangmanUrl} element={<Hangman />} />
     </Routes>

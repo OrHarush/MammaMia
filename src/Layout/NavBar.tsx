@@ -20,7 +20,6 @@ const NavBar = () => {
           <Button disableRipple>
             <img src="../../../assets/marioIcon.png" alt="home icon" width="45px" />
           </Button>
-
           <Button onClick={() => navigate('/home')}>Home</Button>
           <Button onClick={() => navigate('/games')}>Games Library</Button>
           <Button onClick={() => navigate('/anime')}>Anime</Button>
@@ -28,6 +27,7 @@ const NavBar = () => {
         <Switch
           onChange={colorMode.toggleColorMode}
           style={{ color: theme.palette.primary.contrastText, top: '-5%' }}
+          // sx={{ backgroundColor: 'green' }}
           icon={<Brightness7Icon />}
           checkedIcon={<Brightness4Icon />}
         />

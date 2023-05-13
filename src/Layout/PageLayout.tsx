@@ -13,7 +13,6 @@ const PageLayout = ({ children }: PageLayoutProps) => {
       sx={{
         height: '100%',
         background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.primary.light} 50%)`,
-        // background: `linear-gradient(to right bottom, ${theme.palette.primary.dark}, ${theme.palette.primary.light})`,
       }}
       overflow="auto"
     >
