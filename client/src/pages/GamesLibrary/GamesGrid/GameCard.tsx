@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button, Stack, useTheme, Zoom } from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Game } from '../Game';
 import Column from '../../../Layout/Column';
 
@@ -64,10 +65,11 @@ const GameCard = ({ game, zoomDelay, ...props }: GameCardProps) => {
             <Button
               variant="contained"
               color="secondary"
-              sx={{ width: '100px' }}
+              sx={{ width: '130px' }}
               onClick={() => openGamePage(game.game_url)}
             >
               Get Game
+              <ArrowForwardIcon />
             </Button>
           </Column>
         </Card>

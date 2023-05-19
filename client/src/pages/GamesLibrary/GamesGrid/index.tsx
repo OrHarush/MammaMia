@@ -1,9 +1,10 @@
-import { Grid, MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material';
+import { Button, Grid, MenuItem, Popper, Select, SelectChangeEvent, Typography } from '@mui/material';
 import { useState } from 'react';
 import GameCard from './GameCard';
 import { Game } from '../Game';
 import Column from '../../../Layout/Column';
 import Row from '../../../Layout/Row';
+import useToggle from '../../../hooks/useToggle';
 
 interface GamesGridProps {
   games: Game[];
@@ -58,7 +59,17 @@ const categories = [
   'Mmorts',
 ];
 const GamesGrid = ({ games }: GamesGridProps) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [isOpen, toggleIsOpen] = useToggle(false);
   const [category, setCategory] = useState('All');
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+    toggleIsOpen();
+  };
+
+  const canBeOpen = isOpen && Boolean(anchorEl);
+  const id = canBeOpen ? 'spring-popper' : undefined;
 
   const handleChange = (event: SelectChangeEvent) => {
     setCategory(event.target.value);
@@ -67,7 +78,15 @@ const GamesGrid = ({ games }: GamesGridProps) => {
   return (
     <Column marginTop="30px">
       <Row alignItems="center" marginLeft="70px">
-        <Typography>Sort By:</Typography>
+        <Typography>Categories</Typography>
+        <Button onClick={handleClick}> Toggle Popper</Button>
+        <Popper id={id} open={isOpen} anchorEl={anchorEl}>
+          <Column width="100px" height="100px" sx={{ backgroundColor: 'red' }}>
+            <Typography>hi</Typography>
+            <Typography>hi</Typography>
+            <Typography>hi</Typography>
+          </Column>
+        </Popper>
         <Select
           sx={{ width: '100px', height: '40px' }}
           labelId="categories"
