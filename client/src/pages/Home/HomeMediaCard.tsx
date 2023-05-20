@@ -3,10 +3,11 @@ import useToggle from '../../hooks/useToggle';
 import MediaCard from '../../types/MediaCard';
 
 interface HomeCardProps extends MediaCard {
+  description: string;
   gifUrl?: string;
 }
 
-const HomeMediaCard = ({ title, imageUrl, gifUrl, ...props }: HomeCardProps) => {
+const HomeMediaCard = ({ title, description, imageUrl, gifUrl, ...props }: HomeCardProps) => {
   const theme = useTheme();
   const [isHovering, toggleIsHovering] = useToggle(false);
 
@@ -38,10 +39,9 @@ const HomeMediaCard = ({ title, imageUrl, gifUrl, ...props }: HomeCardProps) => 
             <CardMedia sx={{ height: 200 }} image={imageUrl} />
           )}
           <CardHeader title={title} />
-          <CardContent>
+          <CardContent sx={{ paddingTop: 0 }}>
             <Typography variant="body2" color="text.secondary">
-              This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup
-              of frozen peas along with the mussels, if you like.
+              {description}
             </Typography>
           </CardContent>
         </Card>

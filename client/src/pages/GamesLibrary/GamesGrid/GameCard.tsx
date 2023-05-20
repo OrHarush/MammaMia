@@ -15,7 +15,7 @@ interface GameCardProps extends CardProps {
 }
 
 const openGamePage = (url: string) => {
-  window.open(url, '_blank'); // Open the URL in a new tab or window
+  window.open(url, '_blank');
 };
 
 const GameCard = ({ game, zoomDelay, ...props }: GameCardProps) => {

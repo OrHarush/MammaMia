@@ -9,21 +9,6 @@ import GridPreview from '../components/GridPreview';
 import GamesGrid from './GamesGrid';
 import GamesGridSkeleton from './GamesGrid/GamesGridSkeleton';
 
-// const games: Game[] = [
-//   {
-//     name: 'Tic Tac Toe',
-//     description: 'First game added to the library',
-//     imageUrl: '../../../assets/tictactoeGameCover.jpg',
-//     navigationUrl: 'tictactoe',
-//   },
-//   {
-//     name: 'Hangman',
-//     description: '2nd game I make',
-//     imageUrl: '../../../assets/hangmanGameCover.jpg',
-//     navigationUrl: 'hangman',
-//   },
-// ];
-
 const GamesLibrary = () => {
   const [games, setGames] = useState<Game[]>([]);
   const navigate = useNavigate();

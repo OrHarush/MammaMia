@@ -5,9 +5,9 @@ export type Game = {
   genre: string;
   thumbnail: string;
   game_url: string;
-  release_date: string;
-  developer: string;
-  publisher: string;
-  freetogame_profile_url: string;
-  platform: string;
+  release_date?: string;
+  developer?: string;
+  publisher?: string;
+  freetogame_profile_url?: string;
+  platform?: string;
 };
