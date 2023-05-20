@@ -1,38 +1,25 @@
 import { Player } from './Player';
-import { canvas, canvasContext } from './gameConsts';
+import { canvas, canvasContext, keys } from './gameConsts';
+import { Platform } from './Platform';
 
 canvas.height = window.innerHeight - 65;
 canvas.width = window.innerWidth;
 
-const keys = {
-  right: {
-    pressed: false,
-  },
-  left: {
-    pressed: false,
-  },
-};
-
+const platform = new Platform();
 const player = new Player();
 player.update();
 
 const animate = () => {
   requestAnimationFrame(animate);
-  canvasContext.clearRect(0, 0, canvas.height, canvas.width);
+  canvasContext.clearRect(0, 0, canvas.width, canvas.height);
   player.update();
+  platform.draw();
+  player.move();
 
-  if (keys.right.pressed) {
-    player.velocity.x = 5;
-  } else if (keys.left.pressed) {
-    player.velocity.x = -5;
-  } else {
-    player.velocity.x = 0;
+  if (player.position.y + player.height <= platform.position.y) {
+    player.velocity.y = 0;
   }
 };
-
-animate();
-
-const keyActions = { w: (player.velocity.y -= 20) };
 
 window.addEventListener('keyup', ({ key }) => {
   if (key === 'd') {
@@ -54,3 +41,5 @@ window.addEventListener('keydown', ({ key }) => {
     keys.left.pressed = true;
   }
 });
+
+animate();
