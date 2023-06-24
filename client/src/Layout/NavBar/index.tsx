@@ -8,7 +8,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { useThemeMode } from '../../appProviders/ThemeProvider';
 import Row from '../Row';
 import NavBarButton from './NavBarButton';
-import { AnimeUrl, GameLibraryUrl, HomeUrl, MyGamesUrl } from '../../consts/urls';
+import { AnimeUrl, ExperimentsUIUrl, GameLibraryUrl, HomeUrl, MyGamesUrl } from '../../consts/urls';
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
@@ -54,6 +54,7 @@ const NavBar = () => {
             <NavBarButton value="library" buttonText="Games Library" navigationUrl={GameLibraryUrl} />
             <NavBarButton value="myGames" buttonText="My Games" navigationUrl={MyGamesUrl} />
             <NavBarButton value="anime" buttonText="Anime" navigationUrl={AnimeUrl} />
+            <NavBarButton value="experimentUi" buttonText="Experiment UI" navigationUrl={ExperimentsUIUrl} />
           </StyledToggleButtonGroup>
         </Row>
         <Switch

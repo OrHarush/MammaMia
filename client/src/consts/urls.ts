@@ -5,3 +5,4 @@ export const TicTacToeUrl = `${MyGamesUrl}/tictactoe`;
 export const HangmanUrl = `${MyGamesUrl}/hangman`;
 export const AnimeUrl = '/anime';
 export const MarioUrl = '/mario';
+export const ExperimentsUIUrl = '/experimentsUi';

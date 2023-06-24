@@ -5,10 +5,20 @@ import GamesLibrary from '../pages/GamesLibrary';
 import TicTacToe from '../pages/Games/TicTacToe';
 import Hangman from '../pages/Games/Hangman';
 import Anime from '../pages/Anime';
-import { AnimeUrl, GameLibraryUrl, HangmanUrl, HomeUrl, MarioUrl, MyGamesUrl, TicTacToeUrl } from '../consts/urls';
+import {
+  AnimeUrl,
+  ExperimentsUIUrl,
+  GameLibraryUrl,
+  HangmanUrl,
+  HomeUrl,
+  MarioUrl,
+  MyGamesUrl,
+  TicTacToeUrl,
+} from '../consts/urls';
 import AnimeInformation from '../pages/Anime/AnimeInformation';
 import MyGames from '../pages/MyGames';
 import Mario from '../pages/Mario';
+import ExperimentsUI from '../pages/ExperimentsUI';
 
 const Routing = () => {
   return (
@@ -22,6 +32,8 @@ const Routing = () => {
       <Route path={TicTacToeUrl} element={<TicTacToe />} />
       <Route path={HangmanUrl} element={<Hangman />} />
       <Route path={MarioUrl} element={<Mario />} />
+      <Route path={MarioUrl} element={<Mario />} />
+      <Route path={ExperimentsUIUrl} element={<ExperimentsUI />} />
     </Routes>
   );
 };

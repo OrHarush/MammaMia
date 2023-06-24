@@ -1,6 +1,8 @@
 import { Stack, StackProps } from '@mui/material';
 
-type ColumnProps = StackProps;
+interface ColumnProps extends StackProps {
+  children: JSX.Element | JSX.Element[];
+}
 
 const Column = ({ children, ...props }: ColumnProps) => {
   return (
